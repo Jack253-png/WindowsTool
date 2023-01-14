@@ -12,7 +12,7 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe", 
-                "C:\\Windows\\System32\\Dwmapi.dll", 
+                "${workspaceFolder}\\dlls\\Dwmapi.dll", 
                 "${workspaceFolder}\\SRGBColor.h", 
                 "${workspaceFolder}\\SRGBColor.cpp"
             ],

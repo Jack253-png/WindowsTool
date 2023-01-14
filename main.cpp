@@ -5,6 +5,21 @@
 
 using namespace std;
 
+BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)							
+{
+	char szBuf[MAX_PATH] = { 0 };
+	char szOutput[MAX_PATH] = { 0 };
+ 
+	GetWindowText(hwnd, szBuf, MAX_PATH);
+	if (strlen(szBuf))
+	{
+        printf(szBuf);
+        printf("\n");
+	}
+ 
+	return(TRUE);
+}
+
 SRGBColor* GetWindowsThemeColor() {
     DWORD crColorization;
     BOOL fOpaqueBlend;
@@ -21,6 +36,7 @@ SRGBColor* GetWindowsThemeColor() {
 }
 
 int main(int argc, char *argv[]) {
+    EnumWindows(EnumWindowsProc, NULL);
     SRGBColor *color = GetWindowsThemeColor();
     cout << color->getBlue() << endl;
 }
